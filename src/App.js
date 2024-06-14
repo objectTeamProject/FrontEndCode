@@ -3,7 +3,7 @@ import Todo from './Todo';
 import AddTodo from './AddTodo';
 import Weather from './Weather';
 import { Paper, List, Container, Grid, Button, AppBar, Toolbar, Typography, TextField, IconButton } from "@mui/material";
-import { call, signout } from './service/ApiService';
+import { call, signout, account } from './service/ApiService';//추가
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
@@ -13,6 +13,7 @@ import subDays from 'date-fns/subDays';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import './App.css'; // 스타일 파일 임포트
+
 
 function App() {
     const [items, setItems] = useState([]);
@@ -65,6 +66,7 @@ function App() {
         }
     };
 
+
     const handleDateChange = (date) => {
         setSelectedDate(date);
     };
@@ -87,20 +89,27 @@ function App() {
             <Todo item={item} key={item.id} delete={deleteItem} update={update} />
         ));
 
-    const navigationBar = (
-        <AppBar position="static">
-            <Toolbar>
-                <Grid container justifyContent="space-between">
-                    <Grid item>
-                        <Typography variant="h6">오늘의 할일</Typography>
+        const navigationBar = (
+            <AppBar position="static">
+                <Toolbar>
+                    <Grid container justifyContent="space-between" alignItems="center">
+                        <Grid item>
+                            <Typography variant="h6">오늘의 할일</Typography>
+                        </Grid>
+                        <Grid item>
+                            <Grid container spacing={2} justifyContent="flex-end">
+                                <Grid item>
+                                    <Button color="inherit" onClick={account}>회원 정보</Button>
+                                </Grid>
+                                <Grid item>
+                                    <Button color="inherit" onClick={signout}>로그아웃</Button>
+                                </Grid>
+                            </Grid>
+                        </Grid>
                     </Grid>
-                    <Grid item>
-                        <Button color="inherit" onClick={signout}>로그아웃</Button>
-                    </Grid>
-                </Grid>
-            </Toolbar>
-        </AppBar>
-    );
+                </Toolbar>
+            </AppBar>
+        );
 
     const todoListPage = (
         <div>

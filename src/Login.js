@@ -1,11 +1,24 @@
 import React from "react";
 import { signin } from "./service/ApiService";
-import { Button, TextField, Grid, Link, Container, Typography } from "@mui/material";
+import { Button, TextField, Grid, Link, Container, Typography, Snackbar } from "@mui/material";
 
 class Login extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            message: "",
+            open: false,
+        };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleClose = this.handleClose.bind(this);
+    }
+
+    componentDidMount() {
+        const message = localStorage.getItem("message");
+        if (message) {
+            this.setState({ message: message, open: true });
+            localStorage.removeItem("message");
+        }
     }
 
     handleSubmit(event) {
@@ -14,7 +27,24 @@ class Login extends React.Component {
         const email = data.get("email");
         const password = data.get("password");
 
-        signin({ email: email, password: password });
+        signin({ email: email, password: password })
+            .then((response) => {
+                window.location.href = "/";
+            })
+            .catch((error) => {
+                let errorMessage = "다시 입력하세요";
+                if (error.response && error.response.data && error.response.data.error) {
+                    errorMessage = error.response.data.error;
+                }
+                this.setState({
+                    message: errorMessage,
+                    open: true,
+                });
+            });
+    }
+
+    handleClose() {
+        this.setState({ open: false });
     }
 
     render() {
@@ -25,8 +55,7 @@ class Login extends React.Component {
                         로그인
                     </Typography>
                 </Grid>
-                <form onValidate onSubmit={this.handleSubmit}>
-                    {/* submit 버튼을 클릭하면 handleSubmit이 실행됨 */}
+                <form onSubmit={this.handleSubmit}>
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <TextField
@@ -48,6 +77,7 @@ class Login extends React.Component {
                                 label="패스워드"
                                 name="password"
                                 autoComplete="password"
+                                type="password"
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -67,9 +97,17 @@ class Login extends React.Component {
                         </Grid>
                     </Grid>
                 </form>
+                <Snackbar
+                    open={this.state.open}
+                    autoHideDuration={6000}
+                    onClose={this.handleClose}
+                    message={this.state.message}
+                    anchorOrigin={{ vertical: "top", horizontal: "center" }}
+                />
             </Container>
         );
     }
 }
 
 export default Login;
+

@@ -9,7 +9,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@mui/icons-material": "^5.15.19",
-    "@mui/material": "^5.15.19",
+    "@mui/material": "^5.15.20",
     "@mui/x-date-pickers": "^7.6.1",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^16.0.0",
@@ -48,5 +48,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "Account.js",
+  "author": "",
+  "license": "ISC"
 }
