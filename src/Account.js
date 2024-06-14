@@ -1,6 +1,6 @@
 import React from "react";
 import { getUserInfo, delaccount } from "./service/ApiService";
-import { Button, Grid, Container, Typography, Box, Paper } from "@material-ui/core";
+import { Button, Grid, Container, Typography, Box, Paper } from "@mui/material";
 
 class Account extends React.Component {
     constructor(props) {
@@ -79,9 +79,8 @@ class Account extends React.Component {
                 </Box>
             </Container>
         );
-        
-        
     }
 }
 
 export default Account;
+

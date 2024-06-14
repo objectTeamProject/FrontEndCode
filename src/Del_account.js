@@ -4,11 +4,11 @@ import {
     Grid,
     Container,
     Typography,
-}  from "@material-ui/core";
+} from "@mui/material";
 
 import { delaccount } from "./service/ApiService";
 
-class Del_account extends React.Component {
+class DelAccount extends React.Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,7 +16,7 @@ class Del_account extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-    
+
         delaccount().then((response) => {
             if (response.message === "User deleted successfully") {
                 console.log("회원 탈퇴 성공:", response);
@@ -33,8 +33,8 @@ class Del_account extends React.Component {
             window.location.href = "/login";
         });
     }
-    
-    render(){
+
+    render() {
         return (
             <Container component="main" maxWidth="xs" style={{ marginTop: "8%" }}>
                 <form noValidate onSubmit={this.handleSubmit}>
@@ -61,4 +61,4 @@ class Del_account extends React.Component {
     }
 }
 
-export default Del_account
+export default DelAccount;
