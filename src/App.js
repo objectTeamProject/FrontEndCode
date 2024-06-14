@@ -14,7 +14,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import './App.css'; // 스타일 파일 임포트
 
-//여기 에러날 수도
+
 function App() {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);

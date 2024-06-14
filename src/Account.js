@@ -41,39 +41,7 @@ class Account extends React.Component {
     render() {
         const { email, username } = this.state;
         const boxWidth = "80%";
-        // return (
-        //     <Container component="main" maxWidth="xs" style={{ marginTop: "8%" }}>
-        //         <Grid container spacing={2}>
-        //             <Typography component="h1" variant="h5">
-        //                 회원 정보
-        //             </Typography>
-        //         </Grid>
-        //         <Grid container spacing={2} style={{ marginTop: "60px" }}>
-        //             <Grid item xs={12} style={{ marginBottom: "15px" }}>
-        //                 <Typography variant="body1">
-        //                     이메일: {email}
-        //                 </Typography>
-        //             </Grid>
-        //             <Grid item xs={12}>
-        //                 <Typography variant="body1">
-        //                     이름: {username}
-        //                 </Typography>
-        //             </Grid>
-        //         </Grid>
-        //         <Grid container spacing={2} style={{ marginTop: "16px" }}>
-        //             <Grid item xs={12}>
-        //                 <Button
-        //                     fullWidth
-        //                     variant="contained"
-        //                     color="secondary"
-        //                     onClick={this.handleDeleteAccount}
-        //                 >
-        //                     회원 탈퇴
-        //                 </Button>
-        //             </Grid>
-        //         </Grid>
-        //     </Container>
-        // );
+
         return (
             <Container component="main" maxWidth="xs" style={{ marginTop: "8%" }}>
                 <Box display="flex" flexDirection="column" alignItems="center">

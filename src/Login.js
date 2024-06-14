@@ -3,11 +3,7 @@ import { signin } from "./service/ApiService";
 import { Button, TextField, Grid, Link, Container, Typography, Snackbar } from "@mui/material";
 
 class Login extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.handleSubmit = this.handleSubmit.bind(this);
-    // }
-    ///
+
     constructor(props) {
         super(props);
         this.state = {

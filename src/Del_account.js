@@ -14,23 +14,6 @@ class Del_account extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    // handleSubmit(event) {
-    //     event.preventDefault();
-
-    //     // 로그인된 사용자 정보는 이미 백엔드에서 관리하고 있다고 가정합니다.
-    //     delaccount().then((response) => {
-    //         if (response.data && response.data.length > 0) {
-    //             console.log("회원 탈퇴 성공:", response);
-                
-    //             window.location.href = "/login";
-    //         } else {
-    //             alert("회원 탈퇴에 실패했습니다.");
-    //         }
-    //     }).catch((error) => {
-    //         console.error("회원 탈퇴 실패:", error.toString);
-    //         alert("회원 탈퇴 중 오류가 발생했습니다.");
-    //     });
-    // }
     handleSubmit = (event) => {
         event.preventDefault();
     
