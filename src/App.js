@@ -66,15 +66,6 @@ function App() {
         }
     };
 
-    // //추가
-    // const componentDidMount = async () => {
-    //     try{
-    //         await call("/todo", "GET", null);
-    //         fetchTodosByDate(selectedDate);
-    //     } catch (error) {
-    //         console.error("Failed to update todo:", error);
-    //     }
-    // };
 
     const handleDateChange = (date) => {
         setSelectedDate(date);
